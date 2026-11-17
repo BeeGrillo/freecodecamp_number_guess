@@ -49,10 +49,10 @@ if [[ ! -z $USER_ID ]]
 then
   TOTAL=$($PSQL "SELECT count(*) FROM users INNER JOIN games USING(user_id) WHERE user_id = $USER_ID ;")
   GUESSES=$($PSQL "SELECT MIN(guesses) FROM users INNER JOIN games USING(user_id) WHERE user_id = $USER_ID ;")
-  echo -e "\nWelcome back. $USERNAME! You have played $TOTAL games, and your best game took $GUESSES guesses."
+  echo -e "\nWelcome back, $USERNAME! You have played $TOTAL games, and your best game took $GUESSES guesses."
 else
   INSERT_MSG=$($PSQL "INSERT INTO users(username) VALUES('$USERNAME')")
-  echo -e "\nWelcome, $USERNAME. It looks like this is your first time here."
+  echo -e "\nWelcome, $USERNAME! It looks like this is your first time here."
 fi
 
 COUNTER=1
