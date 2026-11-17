@@ -16,12 +16,12 @@ GAME () {
     then
       if [[ $1 -gt $SECRET ]]
       then
-        echo "It's lower than that, guess again:"
+        echo "\nIt's lower than that, guess again:"
         (( COUNTER++ ))
       else
         if [[ $1 -lt $SECRET ]]
         then
-          echo "It's higher than that, guess again:"
+          echo "\nIt's higher than that, guess again:"
           (( COUNTER++ ))
         else
           echo -e "\nYou guessed it in $COUNTER tries. The secret number was $SECRET. Nice job!\n"
