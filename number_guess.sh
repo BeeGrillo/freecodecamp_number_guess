@@ -26,7 +26,7 @@ GAME () {
         else
           echo -e "\nYou guessed it in $COUNTER tries. The secret number was $SECRET. Nice job!\n"
           USER_ID=$($PSQL "SELECT user_id FROM users WHERE username='$USERNAME'")
-          GAME_INSERT=($PSQL "INSERT INTO games (user_id, guesses) VALUES($USER_ID, $COUNTER)")
+          GAME_INSERT=$($PSQL "INSERT INTO games (user_id, guesses) VALUES($USER_ID, $COUNTER)")
           return
         fi
       fi
